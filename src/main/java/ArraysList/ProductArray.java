@@ -37,4 +37,8 @@ public abstract class ProductArray implements ProductSerciveI<Product> {
     public List<Product> findAll() {
         return null;
     }
+
+    public List<Product> getProductList() {
+        return productList;
+    }
 }

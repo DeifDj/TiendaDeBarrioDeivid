@@ -1,32 +1,67 @@
 package org.example;
 
+import ArraysList.ProductArray;
 import entity.Product;
 import entity.User;
 
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.List;
-import java.util.Scanner;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
+import java.util.spi.CalendarDataProvider;
+
 public class Main {
 
     public static void main(String[] args) {
+        Date fechaHoraActual = new Date();
+        SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        String fechaHoraFormateada = formato.format(fechaHoraActual);
 
-        Product productServiceI = new Product(name, price, quantity);
+        System.out.println("Fecha y hora actual: " + fechaHoraFormateada);
+
+
+        Product ProductServiceI = new Product(System.in) {
+            @Override
+            public void add(Product entity) {
+
+            }
+
+            @Override
+            public void edit(Product entity) {
+
+            }
+
+            @Override
+            public void remove(Product entity) {
+
+            }
+
+            @Override
+            public Product findByID(String id) {
+                return null;
+            }
+
+            @Override
+            public List<Product> findAll() {
+                return null;
+            }
+        };
+
         int option = displayMenu();
         while (option !=6){
 
-            Product ProductArray;
             switch (option) {
-                case 1 -> addProduct(productServiceI);
-                case 2 -> editProduct(productServiceI);
-                case 3 -> removeProduct(productServiceI);
-                case 4 -> findByIDProduct(productServiceI);
-                case 5 -> findAllproduct(productServiceI);
+                case 1 -> addProduct(ProductServiceI);
+                case 2 -> editProduct(ProductServiceI);
+                case 3 -> removeProduct(ProductServiceI);
+                case 4 -> findByIDProduct(ProductServiceI);
+                case 5 -> findAllproduct(ProductServiceI);
             }
             option = displayMenu();
         }
     }
+
 
     private static void  User() {
         Scanner scanner=new Scanner(System.in);
@@ -47,10 +82,8 @@ public class Main {
         String price = scanner.nextLine();
         System.out.println("Enter category: ");
         String category = scanner.nextLine();
-        Product product1 = new Product(name, price, quantity);
 
     }
-
 
     private static void editProduct(ProductSerciveI<Product> productSerciveI){
         Scanner scanner = new Scanner(System.in);
@@ -61,7 +94,6 @@ public class Main {
         System.out.println("Enter price: ");
         String price = scanner.nextLine();
         System.out.println("Enter category: ");
-        Product product1 = new Product(name, price, quantity);
     }
     private static void removeProduct(ProductSerciveI<Product> productSerciveI){
         Scanner scanner = new Scanner(System.in);
@@ -72,10 +104,35 @@ public class Main {
         System.out.println("Enter price: ");
         String price = scanner.nextLine();
         System.out.println("Enter category: ");
-        Product product1 = new Product(name, price, quantity);
+
     }
     private static void findByIDProduct(Product productServiceI){
-Product product= new Product(name, price, quantity);
+Product product= new Product(System.in) {
+    @Override
+    public void add(Product entity) {
+
+    }
+
+    @Override
+    public void edit(Product entity) {
+
+    }
+
+    @Override
+    public void remove(Product entity) {
+
+    }
+
+    @Override
+    public Product findByID(String id) {
+        return null;
+    }
+
+    @Override
+    public List<Product> findAll() {
+        return null;
+    }
+};
 ProductSerciveI.addProduct(product);
 
     }
@@ -83,11 +140,11 @@ ProductSerciveI.addProduct(product);
         System.out.println("Enter name: ");
 
     }
+
     private static int displayMenu() {
         System.out.println("---------BIENVENIDO A NUESTRO MENU.........");
         System.out.println("SELECCIONE LA OPCION CORRESPONDIENTE A SU SOLICITUD.");
         System.out.println("-------------------------------------------");
-
         System.out.println("---------! 1 : add Product.................");
         System.out.println("---------! 2 : edit Product................");
         System.out.println("---------! 3 : remove Product..............");
@@ -97,6 +154,7 @@ ProductSerciveI.addProduct(product);
         System.out.println("!!!!No Olvides Finalizar tu compra y salir de tu Usuario!!!!");
         System.out.println("____________________________________________________________");
         System.out.println("* Seleccione una de las opciones anteriores: ");
+
         Scanner scanner = new Scanner(System.in);
         int option =6;
         try {
@@ -111,6 +169,7 @@ ProductSerciveI.addProduct(product);
         }
         return option;
     }
+
 
 }
 
