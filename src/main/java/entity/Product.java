@@ -3,17 +3,24 @@ package entity;
 import jdk.jfr.Category;
 import org.example.ProductSerciveI;
 
-import java.util.List;
-
-public class Product implements ProductSerciveI<Product> {
+public abstract class Product implements ProductSerciveI<Product> {
 
     private String id;
 
     private String name;
     private String price;
+    private int quiantity;
     private Category category;
 
-    public Product() {
+    public Product(String name, double price, int quantity) {
+    }
+
+    public Product(String id, String name, String price, int quiantity, String category) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.quiantity = quiantity;
+        this.category = category;
     }
 
     public String getId() {
@@ -40,6 +47,14 @@ public class Product implements ProductSerciveI<Product> {
         this.price = price;
     }
 
+    public int getQuiantity() {
+        return quiantity;
+    }
+
+    public void setQuiantity(int quiantity) {
+        this.quiantity = quiantity;
+    }
+
     public Category getCategory() {
         return category;
     }
@@ -47,29 +62,5 @@ public class Product implements ProductSerciveI<Product> {
     public void setCategory(Category category) {
         this.category = category;
     }
-
-    @Override
-    public void add(Product entity) {
-
-    }
-
-    @Override
-    public void edit(Product entity) {
-
-    }
-
-    @Override
-    public void remove(Product entity) {
-
-    }
-
-    @Override
-    public Product findByID(String id) {
-        return null;
-    }
-
-    @Override
-    public List<Product> findAll() {
-        return null;
-    }
 }
+

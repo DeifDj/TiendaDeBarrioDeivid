@@ -4,13 +4,15 @@ import entity.Product;
 import entity.User;
 
 
-import javax.lang.model.element.Name;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.List;
 import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
 
-        Product productServiceI = new Product();
+        Product productServiceI = new Product(name, price, quantity);
         int option = displayMenu();
         while (option !=6){
 
@@ -45,9 +47,10 @@ public class Main {
         String price = scanner.nextLine();
         System.out.println("Enter category: ");
         String category = scanner.nextLine();
-        Product product1 = new Product();
+        Product product1 = new Product(name, price, quantity);
 
     }
+
 
     private static void editProduct(ProductSerciveI<Product> productSerciveI){
         Scanner scanner = new Scanner(System.in);
@@ -58,7 +61,7 @@ public class Main {
         System.out.println("Enter price: ");
         String price = scanner.nextLine();
         System.out.println("Enter category: ");
-        Product product1 = new Product();
+        Product product1 = new Product(name, price, quantity);
     }
     private static void removeProduct(ProductSerciveI<Product> productSerciveI){
         Scanner scanner = new Scanner(System.in);
@@ -69,10 +72,10 @@ public class Main {
         System.out.println("Enter price: ");
         String price = scanner.nextLine();
         System.out.println("Enter category: ");
-        Product product1 = new Product();
+        Product product1 = new Product(name, price, quantity);
     }
     private static void findByIDProduct(Product productServiceI){
-Product product= new Product();
+Product product= new Product(name, price, quantity);
 ProductSerciveI.addProduct(product);
 
     }
@@ -108,4 +111,8 @@ ProductSerciveI.addProduct(product);
         }
         return option;
     }
+
 }
+
+
+
