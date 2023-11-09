@@ -1,7 +1,8 @@
 package entity;
 
-import jdk.jfr.Category;
 import org.example.ProductSerciveI;
+
+import java.io.InputStream;
 
 public abstract class Product implements ProductSerciveI<Product> {
 
@@ -10,7 +11,7 @@ public abstract class Product implements ProductSerciveI<Product> {
     private String name;
     private String price;
     private int quiantity;
-    private Category category;
+    private String category;
 
     public Product(String name, double price, int quantity) {
     }
@@ -21,6 +22,9 @@ public abstract class Product implements ProductSerciveI<Product> {
         this.price = price;
         this.quiantity = quiantity;
         this.category = category;
+    }
+
+    public Product(InputStream in) {
     }
 
     public String getId() {
@@ -55,11 +59,11 @@ public abstract class Product implements ProductSerciveI<Product> {
         this.quiantity = quiantity;
     }
 
-    public Category getCategory() {
+    public String getCategory() {
         return category;
     }
 
-    public void setCategory(Category category) {
+    public void setCategory(String category) {
         this.category = category;
     }
 }
