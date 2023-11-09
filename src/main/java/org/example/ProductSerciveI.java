@@ -4,17 +4,17 @@ import entity.Product;
 
 import java.util.List;
 
-public interface ProductSerciveI<T> {
+public interface ProductSerciveI {
 
     static void addProduct(Product product) {
     }
 
-    void add(T entity);
+    void add();
 
-   void edit(T entity);
-   void remove(T entity);
+   void edit();
+   void remove();
 
-    T findByID(String id);
+    void findByID();
 
-   List<T> findAll();
+    void findAll();
 }
