@@ -1,16 +1,9 @@
 package org.example;
 
-
-import entity.Product;
-import entity.User;
 import entity.productService;
 
-
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
-import java.util.spi.CalendarDataProvider;
+
 
 public class Main {
 
@@ -27,7 +20,7 @@ public class Main {
                    case 3 -> productService.remove();
                    case 4 -> productService.findByID();
                    case 5 -> productService.findAll();
-                     // case 6 -> csvReader.
+                  // case 6 -> csvReader
                 }
                 option = displayMenu();
             }
