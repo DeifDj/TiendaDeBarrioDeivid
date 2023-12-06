@@ -8,16 +8,16 @@ import org.apache.commons.csv.CSVRecord;
 
 import java.io.FileReader;
 import java.io.Reader;
-import java.util.ArrayList;
 import java.util.List;
 
 public class CSVReader {
 
-    Product product = new Product();
 
     public static void main(String[] args) throws Exception {
-        productService productService= new productService();
-        Product product = new Product();
+        productService productService= new productService() {
+
+        };
+
         List<Product>List = productService.getProductList();
         // Ruta al archivo CSV
         String csvFilePath = "C:\\Users\\clikb\\IdeaProjects\\TiendaDeBarrioDeivid\\src\\main\\Recursos\\inventory.csv";
@@ -37,10 +37,16 @@ public class CSVReader {
             String category = csvRecord.get(4); // Obtener el valor de la segunda columna
             String description = csvRecord.get(5); // Obtener el valor de la segunda columna
             String labels = csvRecord.get(6); // Obtener el valor de la segunda columna
+            int quantity = Integer.parseInt(csvRecord.get(7));
+            Product product  = new Product(id, name, price, quantity, url, category, description, labels);
 
-         Product product1  = new Product(id,name,price,url,category,description,labels);
-         List.add(product1);
-            System.out.println(product1);
+
+
+
+
+
+         List.add(product);
+            System.out.println(product);
 
         }
 
@@ -48,5 +54,7 @@ public class CSVReader {
         reader.close();
         csvParser.close();
     }
+
+    
 }
 

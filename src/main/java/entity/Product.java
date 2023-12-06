@@ -1,38 +1,23 @@
 package entity;
 
-<<<<<<< HEAD
-public class Product {
-=======
-import org.example.ProductSerciveI;
 
-import java.io.InputStream;
+public  class Product{
 
-public abstract class Product implements ProductSerciveI<Product> {
->>>>>>> main
 
     private String id;
 
     private String name;
     private String price;
-<<<<<<< HEAD
-=======
     private int quiantity;
     private String category;
->>>>>>> main
 
     private String url;
-
-
-    private String category;
 
     private String description;
     private String labels;
 
-    public String getCategory() {
-        return category;
-    }
 
-    public Product(String id, String name, String price, String url, String category, String description, String labels) {
+    public Product(String id, String name, String price, int quantity, String url, String category, String description, String labels) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -43,12 +28,9 @@ public abstract class Product implements ProductSerciveI<Product> {
     }
 
 
-
-    public Product() {
+    public Product(int id, String name, double price, String url, String category, String description, String labels) {
     }
 
-    public Product(InputStream in) {
-    }
 
     public String getId() {
         return id;
@@ -82,13 +64,10 @@ public abstract class Product implements ProductSerciveI<Product> {
         this.url = url;
     }
 
-<<<<<<< HEAD
-=======
+
     public String getCategory() {
         return category;
     }
-
->>>>>>> main
     public void setCategory(String category) {
         this.category = category;
     }
@@ -121,5 +100,7 @@ public abstract class Product implements ProductSerciveI<Product> {
                 ", labels='" + labels + '\'' +
                 '}';
     }
+
+
 }
 
